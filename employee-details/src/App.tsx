@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Accordion from "./Components/Accordion";
 import Login from "./Components/Login";
-import User from "./Components/User";
+import User from "./Components/Signup";
 
 function App() {
   const namelist = [
