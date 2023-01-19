@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Accordion from "./Components/Accordion";
 import Login from "./Components/Login";
+import User from "./Components/User";
 
 function App() {
   const namelist = [
@@ -51,6 +52,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Accordion names={namelist} />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/user" element={<User/>} />
       </Routes>
     </BrowserRouter>
   );
