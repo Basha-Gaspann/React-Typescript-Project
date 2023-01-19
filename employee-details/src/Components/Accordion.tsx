@@ -4,7 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 type PersonListsProps = {
   names: {
@@ -27,7 +27,7 @@ export default function ControlledAccordions(props: PersonListsProps) {
     <div>
       <h1 style={{ textAlign: "center" }}>Accordion</h1>
 
-      {props.names.map((name,index) => {
+      {props.names.map((name, index) => {
         return (
           <Accordion
             expanded={expanded === `panel${index}`}
@@ -50,12 +50,12 @@ export default function ControlledAccordions(props: PersonListsProps) {
               <Typography sx={{ width: "20%", color: "text.secondary" }}>
                 {name.location}
               </Typography>
-              <Typography sx={{ width: "10%"}}>
-              <Button variant="outlined">Edit</Button>
+              <Typography sx={{ width: "10%" }}>
+                <Button variant="outlined">Edit</Button>
               </Typography>
 
               <Typography>
-              <Button variant="outlined">View</Button>
+                <Button variant="outlined">View</Button>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

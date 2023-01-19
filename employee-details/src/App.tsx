@@ -1,5 +1,5 @@
-import "./App.css";
 import Accordion from "./Components/Accordion";
+import Login from "./Components/Login";
 
 function App() {
   const namelist = [
@@ -48,6 +48,7 @@ function App() {
     <>
       <div className="App">
         <Accordion names={namelist} />
+        <Login />
       </div>
     </>
   );
