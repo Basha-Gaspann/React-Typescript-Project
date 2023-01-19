@@ -47,15 +47,13 @@ function App() {
   // };
 
   return (
-
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Accordion names={namelist} />} />
-      <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Accordion names={namelist} />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
-      </BrowserRouter>
-   
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

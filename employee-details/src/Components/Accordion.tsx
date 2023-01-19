@@ -5,6 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 type PersonListsProps = {
   names: {
@@ -51,7 +52,9 @@ export default function ControlledAccordions(props: PersonListsProps) {
                 {name.location}
               </Typography>
               <Typography sx={{ width: "10%" }}>
-                <Button variant="outlined">Edit</Button>
+                <Button variant="outlined" component={Link} to="/login">
+                  Edit
+                </Button>
               </Typography>
 
               <Typography>
