@@ -7,7 +7,7 @@ body {
  }
  .loginform{
    margin: auto;
-   /* width: 50%; */
+   width: 50%;
    background-color: #0eb3f7;
    border-radius: 20px ;
  }
