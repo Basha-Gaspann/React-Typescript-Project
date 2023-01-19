@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Accordion from "./Components/Accordion";
 import Login from "./Components/Login";
 
@@ -45,13 +47,15 @@ function App() {
   // };
 
   return (
-    <>
-      <div className="App">
-        <Accordion names={namelist} />
-        <Login />
-      </div>
-    </>
+
+    <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Accordion names={namelist} />} />
+      <Route path="/login" element={<Login />} />
+      </Routes>
+      </BrowserRouter>
+   
   );
-}
+};
 
 export default App;
