@@ -3,6 +3,7 @@ import "./App.css";
 import Accordion from "./Components/Accordion";
 import Login from "./Components/Login";
 import ResourceData from "./Components/ResourceDashboard/ResourceData";
+import Signup from "./Components/Signup";
 
 function App() {
   const namelist = [
@@ -53,6 +54,7 @@ function App() {
         <Route path="/" element={<Accordion names={namelist} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/resourceData" element={<ResourceData />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

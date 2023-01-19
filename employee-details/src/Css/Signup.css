@@ -1,24 +1,16 @@
-.loginform {
+.signup {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
-.loginform {
+.signup form {
+  max-width: 80%;
   margin: auto;
-  width: 50%;
-  background-color: #0eb3f7;
-  border-radius: 20px;
+  padding: 40px;
+  background: white;
 }
 
-.loginform form {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 120px !important;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.loginform h1 {
+.signup h1 {
   font-weight: 100;
   color: white;
   text-align: center;
@@ -26,34 +18,41 @@
   border-bottom: 1px solid rgb(79, 98, 148);
 }
 
-.loginform .form {
+.signup .form {
   background: #0e101c;
   max-width: 400px;
   margin: 0 auto;
 }
 
-.loginform p {
+.signup p {
   color: #bf1650;
 }
 
-.loginform p::before {
+.signup p::before {
   display: inline;
   content: "⚠ ";
 }
 
-.loginform input {
+.signup input {
   display: block;
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  border: 1px solid white;
+  border: 1px solid rgb(51, 47, 47);
   padding: 10px 15px;
   margin-bottom: 10px;
   font-size: 14px;
-  outline: none;
+}
+.signup .grid_container {
+  background-color: #0eb3f7;
+  border-radius: 8px;
+  border-radius: 8px;
+}
+.signup .account {
+  padding: 40px;
 }
 
-.loginform label {
+.signup label {
   line-height: 2;
   text-align: left;
   display: block;
@@ -61,63 +60,55 @@
   margin-top: 20px;
   color: white;
   font-size: 20px;
-  letter-spacing: 1px;
   font-weight: 500;
 }
 
-.loginform button[type="submit"],
-.loginform input[type="submit"] {
-  background-color: white;
-  color: #0eb3f7;
+.signup button[type="submit"],
+.signup input[type="submit"] {
+  background: #333;
+  color: white;
   text-transform: uppercase;
   border: none;
   margin-top: 40px;
+  padding: 20px;
   font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 10px;
-  border-radius: 10px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  font-weight: 100;
 }
 
-.loginform button[type="submit"]:hover,
-.loginform input[type="submit"]:hover {
-  background: #0eb3f7;
-  color: white;
-  border: 3px solid white;
-  font-weight: 600;
+.signup button[type="submit"]:hover,
+.signup input[type="submit"]:hover {
+  background: #9eda86;
 }
 
-.loginform button[type="submit"]:active,
-.loginform input[type="button"]:active,
-.loginform input[type="submit"]:active {
+.signup button[type="submit"]:active,
+.signup input[type="button"]:active,
+.signup input[type="submit"]:active {
   transition: 0.3s all;
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
 }
 
-.loginform input:disabled {
+.signup input:disabled {
   opacity: 0.4;
 }
 
-.loginform input[type="button"]:hover {
+.signup input[type="button"]:hover {
   transition: 0.3s all;
 }
 
-.loginform button[type="submit"],
-.loginform input[type="button"],
-.loginform input[type="submit"] {
+.signup button[type="submit"],
+.signup input[type="button"],
+.signup input[type="submit"] {
   -webkit-appearance: none;
 }
 
-.App {
+.signup .App {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.loginform button[type="button"] {
+.signup button[type="button"] {
   display: block;
   appearance: none;
   background: #333;
@@ -128,11 +119,11 @@
   border-radius: 4px;
 }
 
-.loginform hr {
+.signup hr {
   margin-top: 30px;
 }
 
-.loginform button {
+.signup button {
   display: block;
   appearance: none;
   margin-top: 40px;
