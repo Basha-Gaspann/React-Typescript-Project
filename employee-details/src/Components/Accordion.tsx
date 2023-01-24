@@ -7,10 +7,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import candidateJson from "./ResourceDashboard/Candidate.json";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -35,18 +34,32 @@ export default function ControlledAccordions() {
               aria-controls={`panel${index}bh-content`}
               id={`panel${index}bh-header`}
             >
-                <Container>
-                  <Row>
-                    <Col md={3} xs={6}>{row.role}</Col>
-                    <Col md={3} xs={6}>{row.skillSet}</Col>
-                    <Col md={2} xs={6}>{row.experience}</Col>
-                    <Col md={2} xs={6}>{row.location}</Col>
-                    <Col md={1} xs={6}><Button component={Link} to="/login">Edit</Button></Col>
-                    <Col md={1} xs={6}><Button>View</Button></Col>
-                  </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col md={3} xs={6}>
+                    {row.role}
+                  </Col>
+                  <Col md={3} xs={6}>
+                    {row.skillSet}
+                  </Col>
+                  <Col md={2} xs={6}>
+                    {row.experience}
+                  </Col>
+                  <Col md={2} xs={6}>
+                    {row.location}
+                  </Col>
+                  <Col md={1} xs={6}>
+                    <Button component={Link} to="/login">
+                      Edit
+                    </Button>
+                  </Col>
+                  <Col md={1} xs={6}>
+                    <Button>View</Button>
+                  </Col>
+                </Row>
+              </Container>
 
-{/* 
+              {/* 
                 <Typography style={{ width: "50%", flexShrink: 0 }}>
                   {row.role}
                 </Typography>
@@ -73,16 +86,30 @@ export default function ControlledAccordions() {
                 </div> */}
             </AccordionSummary>
             <AccordionDetails>
-            <Container>
-                  <Row>
-                    <Col md={3} xs={6}>{row.role}</Col>
-                    <Col md={3} xs={6}>{row.skillSet}</Col>
-                    <Col md={2} xs={6}>{row.experience}</Col>
-                    <Col md={2} xs={6}>{row.location}</Col>
-                    <Col md={1} xs={6}><Button component={Link} to="/login">Edit</Button></Col>
-                    <Col md={1} xs={6}><Button>View</Button></Col>
-                  </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col md={3} xs={6}>
+                    {row.role}
+                  </Col>
+                  <Col md={3} xs={6}>
+                    {row.skillSet}
+                  </Col>
+                  <Col md={2} xs={6}>
+                    {row.experience}
+                  </Col>
+                  <Col md={2} xs={6}>
+                    {row.location}
+                  </Col>
+                  <Col md={1} xs={6}>
+                    <Button component={Link} to="/login">
+                      Edit
+                    </Button>
+                  </Col>
+                  <Col md={1} xs={6}>
+                    <Button>View</Button>
+                  </Col>
+                </Row>
+              </Container>
             </AccordionDetails>
           </Accordion>
         );
