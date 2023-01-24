@@ -36,7 +36,6 @@ export default () => {
   ]);
   const [currentPage, setCurrentPage] = useState(0);
   const [pageSize, setPageSize] = useState(10);
-  // const [pageSizes] = useState([5, 10, 15]);
 
   console.log(candidateJson, "candidateJson");
 
