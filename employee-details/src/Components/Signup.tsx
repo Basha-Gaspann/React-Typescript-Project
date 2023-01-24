@@ -3,13 +3,18 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import Grid from "@mui/material/Grid";
 import "../Css/Signup.css";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 
 interface IFormInput {
   role: string;
   accountname: string;
   enagagementManager: string;
   clientPartner: string;
-  tentativeBillingStartDate: string;
+  tentativeBillingStartDate: Date;
   daysPassed: number;
   skillSet: string;
   experience: number;
@@ -20,30 +25,29 @@ interface IFormInput {
   numberOfPositions: number;
   positionType: string;
   location: string;
-  requestDateToPractice: string;
+  requestDateToPractice: Date;
   duration: number;
-  requestDateToHiring: string;
-  daysOpen: string;
-  numberOfPositionsFullfilled: string;
-  numberOfPositionsOffered: string;
+  requestDateToHiring: Date;
+  daysOpen: number;
+  numberOfPositionsFullfilled: number;
+  numberOfPositionsOffered: number;
   interviewStatus: string;
-  status: string;
+  // status: string;
   clientInterivew: string;
   comment: string;
 }
 
-function User() {
+function Signup() {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
-  } = useForm<IFormInput>();
+  } = useForm();
 
-  const onSubmit = (data: IFormInput) => {
-    alert(JSON.stringify(data));
+  const onSubmit = (data: any) => {
+    console.log(data);
   };
-
+ 
   return (
     <div className="signup">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -55,21 +59,20 @@ function User() {
               placeholder="Account Name"
               {...register("accountname", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
+               
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.accountname?.type === "required" && <p>This field is required</p>}
 
             <label>Enagagement Manager</label>
             <input
               type="text"
               placeholder="Enagagement Manager"
               {...register("enagagementManager", {
-                required: true,
-                pattern: /^[A-Za-z]+$/i,
+                required: true,    
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.enagagementManager?.type === "required" && <p>This field is required</p>}
 
             <label>Client Partner</label>
             <input
@@ -80,7 +83,7 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.clientInterivew?.type === "required" && <p>This field is required</p>}
 
             <label>Role</label>
             <input
@@ -95,23 +98,22 @@ function User() {
 
             <label>Tentative Billing Start Date</label>
             <input
-              type="text"
+              type="date"
               placeholder="Tentative Billing Start Date"
               {...register("tentativeBillingStartDate", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.tentativeBillingStartDate?.type === "required" && <p>This field is required</p>}
 
             <label>Days Passed</label>
             <input
-              type="text"
+              type="number"
               placeholder="DaysPassed"
-              {...register("daysPassed", { min: 2, max: 99 })}
+              {...register("daysPassed",{required:true} )}
             />
             {errors.daysPassed && (
-              <p>You Must be older then 18 and younger then 99 years old</p>
+              <p>This field is required</p>
             )}
 
             <label>SkillSet</label>
@@ -123,61 +125,47 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.skillSet?.type === "required" && <p>This field is required</p>}
 
             <label>Experience</label>
             <input
-              type="text"
+              type="number"
               placeholder="Experience"
-              {...register("experience", { min: 18, max: 99 })}
+              {...register("experience", )}
             />
             {errors.experience && (
-              <p>You Must be older then 18 and younger then 99 years old</p>
+              <p>This field is required</p>
             )}
 
             <label>Days Open</label>
             <input
-              type="text"
+              type="number"
               placeholder="Days Open"
               {...register("daysOpen", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.daysOpen?.type === "required" && <p>This field is required</p>}
 
             <label>Number Of Positions Full filled</label>
             <input
-              type="text"
+              type="number"
               placeholder="Number Of Positions Full filled"
               {...register("numberOfPositionsFullfilled", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.numberOfPositionsFullfilled?.type === "required" && <p>This field is required</p>}
 
             <label>Number Of Positions Offered</label>
             <input
-              type="text"
+              type="number"
               placeholder="Number Of Positions Offered"
               {...register("numberOfPositionsOffered", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
-
-            <label>Interview Status</label>
-            <input
-              type="text"
-              placeholder="Interview Status"
-              {...register("interviewStatus", {
-                required: true,
-                pattern: /^[A-Za-z]+$/i,
-              })}
-            />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.numberOfPositionsFullfilled?.type === "required" && <p>This field is required</p>}
 
             <label>Comment</label>
             <input
@@ -188,17 +176,31 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.interviewStatus?.type === "required" && <p>This field is required</p>}
+
+
+            <div>
+      <FormControl className="formcontrol">
+      <label> Interview </label>
+        <Select  {...register(" Interview ", 
+              )}>
+          <MenuItem value={"offline"}>Offline</MenuItem>
+          <MenuItem value={"online"}>Online</MenuItem>
+         
+        </Select>
+      </FormControl>
+    </div>
+    
           </Grid>
           <Grid item xs={6} className="account">
             <label>Cost RateCap</label>
             <input
-              type="text"
+              type="number"
               placeholder="CostRateCap"
-              {...register("costRateCap", { min: 18, max: 99 })}
+              {...register("costRateCap", )}
             />
             {errors.costRateCap && (
-              <p>You Must be older then 18 and younger then 99 years old</p>
+              <p>This field is required</p>
             )}
             <label>Practice Name</label>
             <input
@@ -209,7 +211,7 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.costRateCap?.type === "required" && <p>This field is required</p>}
 
             <label>Sub Practice</label>
             <input
@@ -220,7 +222,7 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.subPractice?.type === "required" && <p>This field is required</p>}
 
             <label>Sub Sub Practice</label>
             <input
@@ -231,16 +233,16 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.subSubPractice?.type === "required" && <p>This field is required</p>}
 
             <label>Number Of Positions</label>
             <input
-              type="text"
+              type="number"
               placeholder="Number Of Positions"
-              {...register("numberOfPositions", { min: 18, max: 99 })}
+              {...register("numberOfPositions", )}
             />
             {errors.numberOfPositions && (
-              <p>You Must be older then 18 and younger then 99 years old</p>
+              <p>This field is required</p>
             )}
 
             <label>Position Type</label>
@@ -252,7 +254,7 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.positionType?.type === "required" && <p>This field is required</p>}
 
             <label>Location</label>
             <input
@@ -263,62 +265,85 @@ function User() {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.location?.type === "required" && <p>This field is required</p>}
 
             <label>Request Date To Practice</label>
             <input
-              type="text"
+              type="Date"
               placeholder="Request Date To Practice"
               {...register("requestDateToPractice", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
+            
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.requestDateToPractice?.type === "required" && <p>This field is required</p>}
 
             <label>Duration</label>
             <input
-              type="text"
+              type="number"
               placeholder="Duration"
-              {...register("duration", { min: 18, max: 99 })}
+              {...register("duration", { required:true })}
             />
             {errors.duration && (
-              <p>You Must be older then 18 and younger then 99 years old</p>
+              <p>This field is required</p>
             )}
 
             <label>Request Date To Hiring</label>
             <input
-              type="text"
+              type="Date"
               placeholder="Request Date To Hiring"
               {...register("requestDateToHiring", {
                 required: true,
-                pattern: /^[A-Za-z]+$/i,
+              
               })}
             />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+            {errors?.requestDateToHiring?.type === "required" && <p>This field is required</p>}
 
-            <label>Status</label>
-            <input
-              type="text"
-              placeholder="status"
-              {...register("status", {
-                required: true,
-                pattern: /^[A-Za-z]+$/i,
-              })}
-            />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+         
+            
 
-            <label>ClientInterivew</label>
-            <input
-              type="text"
-              placeholder="Client Interivew"
-              {...register("clientInterivew", {
-                required: true,
-                pattern: /^[A-Za-z]+$/i,
-              })}
-            />
-            {errors?.role?.type === "required" && <p>This field is required</p>}
+<div>
+      <FormControl className="formcontrol">
+      <label>Status</label>
+        <Select {...register("status", 
+              )}>
+          <MenuItem value={"open"}>Open</MenuItem>
+          <MenuItem value={"close"}>Close</MenuItem>
+          
+        </Select>
+      </FormControl>
+    </div>
+
+    <div>
+      <FormControl className="formcontrol">
+      <label>Client Interview</label>
+        <Select  {...register("clientInterview", 
+              )}>
+          <MenuItem value={"yes"}>yes</MenuItem>
+          <MenuItem value={"no"}>No</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+
+    <div>
+      <FormControl className="formcontrol">
+      <label>InterviewStatus</label>
+        <Select  {...register("interviewStatus", 
+              )}>
+          <MenuItem value={"selected"}>Selected</MenuItem>
+          <MenuItem value={"pending"}>Pending</MenuItem>
+          <MenuItem value={"sheduled"}>Sheduled</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+
+
+    
+
+   
+
           </Grid>
+         
         </Grid>
         <input type="submit" />
       </form>
@@ -326,4 +351,4 @@ function User() {
   );
 }
 
-export default User;
+export default Signup;

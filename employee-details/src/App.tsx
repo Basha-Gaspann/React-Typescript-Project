@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Accordion from "./Components/Accordion";
+
+
 import Login from "./Components/Login";
 import ResourceData from "./Components/ResourceDashboard/ResourceData";
+// import Sign from "./Components/Sign";
 import Signup from "./Components/Signup";
 
 function App() {
@@ -51,12 +54,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+     {/* <Sign/> */}
+   
         <Route path="/" element={<Accordion names={namelist} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/resourceData" element={<ResourceData />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+
     </BrowserRouter>
+   
   );
 }
 
