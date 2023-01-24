@@ -19,40 +19,29 @@ function App() {
   };
 
   return (
-    <div className="loginform  container">
-      <div className="row">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="col-xs-12 col-md-6 col-lg-4">
-            <label>Email</label>
-            <input
-              type="email"
-              {...register("email", {
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              })}
-            />
-            {errors?.email?.type === "required" && (
-              <p>This field is required</p>
-            )}
-          </div>
+    <div className="loginform">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Email</label>
+        <input
+          type="email"
+          {...register("email", {
+            required: true,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+          })}
+        />
+        {errors?.email?.type === "required" && <p>This field is required</p>}
 
-          <div className="col-xs-12">
-            <label>Password</label>
-            <input
-              type="password"
-              {...register("password", {
-                required: true,
-                pattern: /^[A-Za-z]\w{7,14}$/,
-              })}
-            />
-            {errors?.password?.type === "required" && (
-              <p>This field is required</p>
-            )}
-          </div>
-
-          <input className="btn btn-primary" type="submit" />
-        </form>
-      </div>
+        <label>Password</label>
+        <input
+          type="password"
+          {...register("password", {
+            required: true,
+            pattern: /^[A-Za-z]\w{7,14}$/,
+          })}
+        />
+        {errors?.password?.type === "required" && <p>This field is required</p>}
+        <input className="btn btn-primary" type="submit" />
+      </form>
     </div>
   );
 }
