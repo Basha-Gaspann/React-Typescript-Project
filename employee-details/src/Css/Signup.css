@@ -181,26 +181,38 @@
 }
 
 
-@media screen and (max-width: 768px) {
-.signup .formcontrol {
-  min-width: 244px !important;
-}
-}
-
-@media screen and (min-width: 1024px) {
+/* @media screen and (max-width: 768px) {
   .signup .formcontrol {
-    min-width: 320px !important;
-  }
-  }
+    min-width: 190px;
+}
+} */
 
-  @media screen and (min-width: 320px) {
+/* @media screen and (min-width: 1024px) {
+  .signup .formcontrol {
+    min-width: 290px !important;
+  }
+  } */
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     .signup .formcontrol {
-      min-width: 120px !important;
+      min-width: 100% !important;
     }
-    }
+    } 
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
       .signup .formcontrol {
-        min-width: 482px !important;
+        min-width: 100% !important;
       }
+      } 
+
+      @media screen and (min-width: 1024px) and (max-width: 1440px) {
+        .signup .formcontrol {
+          min-width: 100% !important;
+        }
+        } 
+
+    /* @media screen and (min-width: 1440px) {
+      .signup .formcontrol {
+        min-width: 450px !important;
       }
+      } */
