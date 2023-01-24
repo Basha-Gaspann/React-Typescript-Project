@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { Pagination, Stack } from "@mui/material";
 
 type PersonListsProps = {
   names: {
@@ -23,6 +24,7 @@ export default function ControlledAccordions(props: PersonListsProps) {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+  const [pageCount, setPageCount] = React.useState(5);
 
   return (
     <div>
@@ -67,6 +69,9 @@ export default function ControlledAccordions(props: PersonListsProps) {
                 feugiat. Aliquam eget maximus est, id dignissim quam.
               </Typography>
             </AccordionDetails>
+            <Stack>
+              <Pagination count={pageCount} color="primary" />
+            </Stack>
           </Accordion>
         );
       })}
