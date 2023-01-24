@@ -5,22 +5,19 @@ interface IFormInput {
   email: string;
   password: string;
   experience: string;
-  example: string;
 }
 
 function App() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
-    alert(JSON.stringify(data));
-  }; // your form submit function which will invoke after successful validation
+    console.log(data);
+  };
 
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
   return (
     <div className="loginform">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -33,6 +30,7 @@ function App() {
           })}
         />
         {errors?.email?.type === "required" && <p>This field is required</p>}
+
         <label>Password</label>
         <input
           type="password"
@@ -42,8 +40,7 @@ function App() {
           })}
         />
         {errors?.password?.type === "required" && <p>This field is required</p>}
-
-        <input type="submit" />
+        <input className="btn btn-primary" type="submit" />
       </form>
     </div>
   );
