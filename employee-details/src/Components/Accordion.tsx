@@ -35,20 +35,20 @@ export default function ControlledAccordions() {
                 <Typography style={{ width: "50%", flexShrink: 0 }}>
                   {row.role}
                 </Typography>
-                <Typography style={{ width: "20%", flexShrink: 0 }}>
+                <Typography style={{ width: "50%", flexShrink: 0 }}>
                   {row.skillSet}
                 </Typography>
-                <Typography style={{ width: "20%", flexShrink: 0 }}>
+                <Typography style={{ width: "30%", flexShrink: 0 }}>
                   {row.experience}
                 </Typography>
-                <Typography style={{ width: "20%", color: "textSecondary" }}>
+                <Typography style={{ width: "40%", color: "textSecondary" }}>
                   {row.location}
                 </Typography>
-                <div style={{ width: "10%", display: "flex" }}>
+                <div style={{ width: "10%", display: "flex", marginLeft:"3rem" }}>
                   <Button variant="outlined" component={Link} to="/login">
                     Edit
                   </Button>
-                  <Button variant="outlined" style={{ marginLeft: "5px" }}>
+                  <Button variant="outlined" style={{ marginLeft: "25px" }}>
                     View
                   </Button>
                 </div>
