@@ -7,9 +7,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import candidateJson from "./ResourceDashboard/Candidate.json";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -34,82 +31,33 @@ export default function ControlledAccordions() {
               aria-controls={`panel${index}bh-content`}
               id={`panel${index}bh-header`}
             >
-              <Container>
-                <Row>
-                  <Col md={3} xs={6}>
-                    {row.role}
-                  </Col>
-                  <Col md={3} xs={6}>
-                    {row.skillSet}
-                  </Col>
-                  <Col md={2} xs={6}>
-                    {row.experience}
-                  </Col>
-                  <Col md={2} xs={6}>
-                    {row.location}
-                  </Col>
-                  <Col md={1} xs={6}>
-                    <Button component={Link} to="/login">
-                      Edit
-                    </Button>
-                  </Col>
-                  <Col md={1} xs={6}>
-                    <Button>View</Button>
-                  </Col>
-                </Row>
-              </Container>
-
-              {/* 
+              <div style={{ display: "flex" }}>
                 <Typography style={{ width: "50%", flexShrink: 0 }}>
                   {row.role}
                 </Typography>
-                <Typography
-                  style={{ width: "50%", flexShrink: 0, textAlign: "left" }}
-                >
+                <Typography style={{ width: "50%", flexShrink: 0 }}>
                   {row.skillSet}
                 </Typography>
-                <Typography style={{ width: "50%", flexShrink: 0 }}>
+                <Typography style={{ width: "30%", flexShrink: 0 }}>
                   {row.experience}
                 </Typography>
-                <Typography style={{ width: "50%", color: "textSecondary" }}>
+                <Typography style={{ width: "40%", color: "textSecondary" }}>
                   {row.location}
                 </Typography>
                 <div
-                  style={{ width: "10%", display: "flex", marginLeft: "6rem" }}
+                  style={{ width: "10%", display: "flex", marginLeft: "3rem" }}
                 >
                   <Button variant="outlined" component={Link} to="/login">
                     Edit
                   </Button>
-                  <Button variant="outlined" style={{ marginLeft: "5px" }}>
+                  <Button variant="outlined" style={{ marginLeft: "25px" }}>
                     View
                   </Button>
-                </div> */}
+                </div>
+              </div>
             </AccordionSummary>
             <AccordionDetails>
-              <Container>
-                <Row>
-                  <Col md={3} xs={6}>
-                    {row.role}
-                  </Col>
-                  <Col md={3} xs={6}>
-                    {row.skillSet}
-                  </Col>
-                  <Col md={2} xs={6}>
-                    {row.experience}
-                  </Col>
-                  <Col md={2} xs={6}>
-                    {row.location}
-                  </Col>
-                  <Col md={1} xs={6}>
-                    <Button component={Link} to="/login">
-                      Edit
-                    </Button>
-                  </Col>
-                  <Col md={1} xs={6}>
-                    <Button>View</Button>
-                  </Col>
-                </Row>
-              </Container>
+              <Typography>{row.location}</Typography>
             </AccordionDetails>
           </Accordion>
         );
