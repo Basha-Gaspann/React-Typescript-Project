@@ -1,0 +1,26 @@
+.footer_container {
+    font-family     : proxima-nova;
+    text-align      : center;
+    border          : none;
+    background-color: #34485f;
+    margin-top      : 50px;
+    color           : #fff;
+    padding         : 10px 16px 0;
+
+}
+
+.footer_list {
+    list-style-type: none;
+    display        : flex;
+    flex-wrap      : wrap;
+    align-items    : center;
+    justify-content: space-between;
+    width          : 450px;
+    margin         : 0 auto;
+    padding-top    : 12px;
+}
+
+.footer_para {
+    margin : 0;
+    padding: 10px 0;
+}
