@@ -7,22 +7,35 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import candidateJson from "./ResourceDashboard/Candidate.json";
+import Pagination from "@mui/material/Pagination";
 
 export default function ControlledAccordions() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
+
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
   const [rows] = React.useState(candidateJson);
 
+  // Pagination Start
+
+  const [page, setPage] = React.useState(1);
+
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
+  const currentData = rows.slice((page - 1) * 5, page * 5);
+
+  // Pagination End
+
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Accordion</h1>
-      {rows.map((row, index) => {
+      {currentData.map((row, index) => {
         return (
           <Accordion
-            key={row.experience}
+            key={index}
             expanded={expanded === `panel${index}`}
             onChange={handleChange(`panel${index}`)}
           >
@@ -44,7 +57,9 @@ export default function ControlledAccordions() {
                 <Typography style={{ width: "40%", color: "textSecondary" }}>
                   {row.location}
                 </Typography>
-                <div style={{ width: "10%", display: "flex", marginLeft:"3rem" }}>
+                <div
+                  style={{ width: "10%", display: "flex", marginLeft: "3rem" }}
+                >
                   <Button variant="outlined" component={Link} to="/login">
                     Edit
                   </Button>
@@ -55,13 +70,17 @@ export default function ControlledAccordions() {
               </div>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                {row.location}
-              </Typography>
+              <Typography>{row.location}</Typography>
             </AccordionDetails>
           </Accordion>
         );
       })}
+
+      <Pagination
+        count={Math.ceil(rows.length / 5)} 
+        page={page}
+        onChange={handlePageChange}
+      />
     </div>
   );
 }
